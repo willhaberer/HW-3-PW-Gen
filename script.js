@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", promptUser);
+generateBtn.addEventListener("click", userDefinePass);
 
 // Write password to the #password input
 function writePassword() {
@@ -14,8 +14,15 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //Creating prompt tree
-function promptUser() {
-  var specialCharacters = prompt(
-    "Would you like to include special characters?"
+function userDefinePass() {
+  var passLength = prompt(
+    "How many Characters would you like the password to be?"
   );
+
+  while (!(8 <= passLength && passLength <= 128)) {
+    var passLength = prompt("Please enter a numeric value between 8 and 128");
+  }
+
+  var specialChars = confirm("Would you like to include special characters?");
+  alert(specialChars);
 }
