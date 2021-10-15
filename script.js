@@ -77,6 +77,8 @@ function writePassword() {
     var passLength = prompt("Please enter a numeric value between 8 and 128");
   }
 
+  //convert a string to a int
+  var intLength = parseInt(passLength);
   var includeSpecialChars = confirm(
     "Would you like to include special characters?"
   );
@@ -84,7 +86,7 @@ function writePassword() {
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
   var useNumbers = confirm("Would you like to include numbers?");
 
-  //use a for loop that randomely picks to take from three arrays using pass length as the max lenggth
+  for (i = 0; i < passLength; i++) {}
   passwordText.value = password;
   return passwordText;
 }
