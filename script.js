@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", userDefinePass);
+generateBtn.addEventListener("click", writePassword);
 
 var alphabet = [
   "a",
@@ -66,17 +66,9 @@ var numList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  //var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-//Creating prompt tree
-function userDefinePass() {
   var passLength = prompt(
     "How many Characters would you like the password to be?"
   );
@@ -88,8 +80,15 @@ function userDefinePass() {
   var includeSpecialChars = confirm(
     "Would you like to include special characters?"
   );
-  alert(includeSpecialChars);
+
+  var useUpperCase = confirm("Would you like to include Upper Case Letters?");
+  var useNumbers = confirm("Would you like to include numbers?");
+
+  passwordText.value = password;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 //allows placeholder to be a variable
 var pHolder = "Placeholder";
