@@ -63,7 +63,7 @@ var specialChars = [
 ];
 
 var numList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-
+var newPass = [];
 // Write password to the #password input
 function writePassword() {
   //var password = generatePassword();
@@ -86,7 +86,16 @@ function writePassword() {
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
   var useNumbers = confirm("Would you like to include numbers?");
 
-  for (i = 0; i < passLength; i++) {}
+  if (includeSpecialChars) {
+    shuffleArrays(specialChars);
+    var addSpecialChar = specialChars[0];
+    let newPass1 = newPass.unshift(addSpecialChar);
+    alert(newPass[0]);
+  }
+
+  for (i = 0; i < intLength; i++) {
+    i++;
+  }
   passwordText.value = password;
   return passwordText;
 }
