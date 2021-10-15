@@ -68,7 +68,7 @@ var newPass = [];
 function writePassword() {
   //var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  newPass = [];
   var passLength = prompt(
     "How many Characters would you like the password to be?"
   );
@@ -89,10 +89,25 @@ function writePassword() {
   if (includeSpecialChars) {
     shuffleArrays(specialChars);
     var addSpecialChar = specialChars[0];
-    let newPass1 = newPass.unshift(addSpecialChar);
-    alert(newPass[0]);
+    newPass.unshift(addSpecialChar);
+    intLength--;
   }
 
+  if (useUpperCase) {
+    shuffleArrays(alphabet);
+    var addUppercase = alphabet[0];
+    addUppercase.toUpperCase;
+    newPass.unshift(addUppercase);
+    intLength--;
+  }
+
+  if (useNumbers) {
+    shuffleArrays(numList);
+    var addNum = numList[0];
+    newPass.unshift(addNum);
+    intLength--;
+  }
+  alert(intLength);
   for (i = 0; i < intLength; i++) {
     i++;
   }
