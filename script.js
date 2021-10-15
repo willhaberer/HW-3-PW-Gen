@@ -90,3 +90,7 @@ function userDefinePass() {
   );
   alert(includeSpecialChars);
 }
+
+//allows placeholder to be a variable
+var pHolder = "Placeholder";
+document.getElementById("password").value = pHolder;
