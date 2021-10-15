@@ -84,7 +84,30 @@ function writePassword() {
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
   var useNumbers = confirm("Would you like to include numbers?");
 
+  //use a for loop that randomely picks to take from three arrays using pass length as the max lenggth
   passwordText.value = password;
+  return passwordText;
+}
+
+//shuffle arrays function
+function shuffleArrays(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
 }
 
 // Add event listener to generate button
@@ -92,4 +115,4 @@ generateBtn.addEventListener("click", writePassword);
 
 //allows placeholder to be a variable
 var pHolder = "Placeholder";
-document.getElementById("password").value = pHolder;
+document.getElementById("password").value = passwordText;
