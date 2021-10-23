@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
-var alphabet = [
+var lowercase = [
   "a",
   "b",
   "c",
@@ -63,12 +63,41 @@ var specialChars = [
 ];
 
 var numList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var newPass = [];
+var uppercase = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+var newPass = "";
+var fullList = [];
 // Write password to the #password input
 function writePassword() {
   //var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  newPass = [];
+
   var passLength = prompt(
     "How many Characters would you like the password to be?"
   );
@@ -89,7 +118,9 @@ function writePassword() {
   if (includeSpecialChars) {
     shuffleArrays(specialChars);
     var addSpecialChar = specialChars[0];
-    newPass.unshift(addSpecialChar);
+    newPass.concat("r");
+    fullList.push(specialChars);
+    alert(newPass);
     intLength--;
   }
 
@@ -97,21 +128,27 @@ function writePassword() {
     shuffleArrays(alphabet);
     var addUppercase = alphabet[0];
     addUppercase.toUpperCase;
-    newPass.unshift(addUppercase);
+    newPass.concat(addUppercase);
+    fullList.push(alphabet);
     intLength--;
   }
 
   if (useNumbers) {
     shuffleArrays(numList);
     var addNum = numList[0];
-    newPass.unshift(addNum);
+    newPass.concat(addNum);
+    fullList.push(numList);
     intLength--;
   }
-  alert(intLength);
+
   for (i = 0; i < intLength; i++) {
+    shuffleArrays(fullList);
+    newPass.concat(fullList[0]);
     i++;
   }
-  passwordText.value = password;
+
+  // passwordText.value = password;
+  alert(newPass);
   return passwordText;
 }
 
@@ -140,5 +177,5 @@ function shuffleArrays(array) {
 generateBtn.addEventListener("click", writePassword);
 
 //allows placeholder to be a variable
-var pHolder = "Placeholder";
+var pHolder = passwordText;
 document.getElementById("password").value = passwordText;
