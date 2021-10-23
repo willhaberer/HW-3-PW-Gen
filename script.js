@@ -173,9 +173,6 @@ function shuffleArrays(array) {
   return array;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 //allows placeholder to be a variable
-var pHolder = passwordText;
-document.getElementById("password").value = passwordText;
+var pHolder = document.querySelector("#password");
+pHolder.textContent = "Your Secure Password";
