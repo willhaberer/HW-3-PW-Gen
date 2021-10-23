@@ -2,6 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
+//defining possible charSets
 var lowercase = [
   "a",
   "b",
@@ -100,10 +101,12 @@ function writePassword() {
     "How many Characters would you like the password to be?"
   );
 
+  //check for proper length value
   while (!(8 <= passLength && passLength <= 128)) {
     var passLength = prompt("Please enter a numeric value between 8 and 128");
   }
 
+  //prompts user to decide if they should use special chars and adds them to the charSet if true
   var useSpecialChars = confirm(
     "Would you like to include special characters?"
   );
@@ -111,30 +114,36 @@ function writePassword() {
     charSet = charSet.concat(specialChars);
   }
 
+  //prompts user to decide if they should use UpperCase and adds them to the charSet if true
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
   if (useUpperCase) {
     charSet = charSet.concat(uppercase);
   }
 
+  //prompts user to decide if they should use LowerCase and adds them to the charSet if true
   var useLowerCase = confirm("Would you like to include Lower Case Letters?");
   if (useLowerCase) {
     charSet = charSet.concat(lowercase);
   }
 
+  //prompts user to decide if they should use Numbers and adds them to the charSet if true
   var useNumbers = confirm("Would you like to include numbers?");
   if (useNumbers) {
     charSet = charSet.concat(numList);
   }
 
+  //extra randomizer...not crucial for functionality
+  shuffleArrays(charSet);
+
+  //loop to write the password by picking a random index from the charset array
   for (i = 0, n = charSet.length; i < passLength; ++i) {
     newPass += charSet[Math.floor(Math.random() * n)];
     console.log(newPass);
   }
-
   pHolder.textContent = newPass;
 }
 
-//shuffle arrays function
+//shuffle arrays function, turns out this is not crucial for functionality but keeping it as a backup idea
 function shuffleArrays(array) {
   let currentIndex = array.length,
     randomIndex;
