@@ -93,11 +93,9 @@ var uppercase = [
 ];
 var newPass = "";
 var fullList = [];
+
 // Write password to the #password input
 function writePassword() {
-  //var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
   var passLength = prompt(
     "How many Characters would you like the password to be?"
   );
@@ -114,42 +112,6 @@ function writePassword() {
 
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
   var useNumbers = confirm("Would you like to include numbers?");
-
-  if (includeSpecialChars) {
-    shuffleArrays(specialChars);
-    var addSpecialChar = specialChars[0];
-    newPass.concat("r");
-    fullList.push(specialChars);
-    alert(newPass);
-    intLength--;
-  }
-
-  if (useUpperCase) {
-    shuffleArrays(alphabet);
-    var addUppercase = alphabet[0];
-    addUppercase.toUpperCase;
-    newPass.concat(addUppercase);
-    fullList.push(alphabet);
-    intLength--;
-  }
-
-  if (useNumbers) {
-    shuffleArrays(numList);
-    var addNum = numList[0];
-    newPass.concat(addNum);
-    fullList.push(numList);
-    intLength--;
-  }
-
-  for (i = 0; i < intLength; i++) {
-    shuffleArrays(fullList);
-    newPass.concat(fullList[0]);
-    i++;
-  }
-
-  // passwordText.value = password;
-  alert(newPass);
-  return passwordText;
 }
 
 //shuffle arrays function
@@ -169,7 +131,6 @@ function shuffleArrays(array) {
       array[currentIndex],
     ];
   }
-
   return array;
 }
 
