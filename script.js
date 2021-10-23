@@ -95,7 +95,7 @@ var uppercase = [
 // Write password to the #password input
 function writePassword() {
   var newPass = "";
-  var charSet = uppercase;
+  var charSet = [];
   var passLength = prompt(
     "How many Characters would you like the password to be?"
   );
@@ -104,14 +104,21 @@ function writePassword() {
     var passLength = prompt("Please enter a numeric value between 8 and 128");
   }
 
-  //convert a string to a int
-  // var intLength = parseInt(passLength);
   var useSpecialChars = confirm(
     "Would you like to include special characters?"
   );
+  if (useSpecialChars) {
+    charSet = charSet.concat(specialChars);
+  }
 
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
+  if (useUpperCase) {
+    charSet = charSet.concat(uppercase);
+  }
   var useNumbers = confirm("Would you like to include numbers?");
+  if (useNumbers) {
+    charSet = charSet.concat(numList);
+  }
 
   for (i = 0, n = charSet.length; i < passLength; ++i) {
     newPass += charSet[Math.floor(Math.random() * n)];
