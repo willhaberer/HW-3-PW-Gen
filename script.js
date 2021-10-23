@@ -115,6 +115,12 @@ function writePassword() {
   if (useUpperCase) {
     charSet = charSet.concat(uppercase);
   }
+
+  var useLowerCase = confirm("Would you like to include Lower Case Letters?");
+  if (useLowerCase) {
+    charSet = charSet.concat(lowercase);
+  }
+
   var useNumbers = confirm("Would you like to include numbers?");
   if (useNumbers) {
     charSet = charSet.concat(numList);
