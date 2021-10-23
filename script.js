@@ -91,11 +91,11 @@ var uppercase = [
   "Y",
   "Z",
 ];
-var newPass = "";
-var fullList = [];
 
 // Write password to the #password input
 function writePassword() {
+  var newPass = "";
+  var charSet = uppercase;
   var passLength = prompt(
     "How many Characters would you like the password to be?"
   );
@@ -105,13 +105,20 @@ function writePassword() {
   }
 
   //convert a string to a int
-  var intLength = parseInt(passLength);
-  var includeSpecialChars = confirm(
+  // var intLength = parseInt(passLength);
+  var useSpecialChars = confirm(
     "Would you like to include special characters?"
   );
 
   var useUpperCase = confirm("Would you like to include Upper Case Letters?");
   var useNumbers = confirm("Would you like to include numbers?");
+
+  for (i = 0, n = charSet.length; i < passLength; ++i) {
+    newPass += charSet[Math.floor(Math.random() * n)];
+    console.log(newPass);
+  }
+
+  pHolder.textContent = newPass;
 }
 
 //shuffle arrays function
